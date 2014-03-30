@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_card"
+    android:orientation="vertical" >
+
+    <com.etsy.android.grid.util.DynamicHeightImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+       />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp" 
+        android:paddingTop="4dp" 
+        android:paddingLeft="8dp" 
+        android:paddingRight="8dp" 
+        android:textSize="18sp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ccc" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="8dp" 
+        android:paddingTop="4dp" 
+        android:paddingLeft="8dp" 
+        android:paddingRight="8dp" />
+        
+
+</LinearLayout>
