@@ -1,11 +1,13 @@
 package com.etsy.android.grid.util;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
+import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 /**
@@ -19,12 +21,20 @@ public class DynamicHeightImageView extends ImageView {
     Path clipPath = new Path();
     RectF rect = new RectF(0, 0, this.getWidth(), this.getHeight());
     
-    public DynamicHeightImageView(Context context, AttributeSet attrs) {
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public DynamicHeightImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+		if (Build.VERSION.SDK_INT < 18) {
+			this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		}
     }
 
-    public DynamicHeightImageView(Context context) {
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	public DynamicHeightImageView(Context context) {
         super(context);
+		if (Build.VERSION.SDK_INT < 18) {
+			this.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		}
     }
 
     public void setHeightRatio(double ratio) {
@@ -54,11 +64,11 @@ public class DynamicHeightImageView extends ImageView {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		rect.left = 0;
-	    rect.top = 0;
-	    rect.right = this.getWidth();
-	    rect.bottom = this.getHeight();
-	    clipPath.addRoundRect(rect, radius, radius, Path.Direction.CW);
-	    canvas.clipPath(clipPath);
-	    super.onDraw(canvas);
+		rect.top = 0;
+		rect.right = this.getWidth();
+		rect.bottom = this.getHeight();
+		clipPath.addRoundRect(rect, radius, radius, Path.Direction.CW);
+		canvas.clipPath(clipPath);
+		super.onDraw(canvas);
 	}
 }

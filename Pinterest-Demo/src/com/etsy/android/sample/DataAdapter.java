@@ -55,8 +55,6 @@ public class DataAdapter extends ArrayAdapter<Data> {
 				.load(data.imageUrl)
 				.into(holder.image);
 		
-		holder.image.setImageResource(R.drawable.img);
-		
 		holder.image.setHeightRatio(1.0);
 		holder.title.setText(data.title);
 		holder.description.setText(data.description);

@@ -15,7 +15,6 @@ int color red 0x7f040005
 int color yellow 0x7f040004
 int drawable background_card 0x7f020000
 int drawable ic_launcher 0x7f020001
-int drawable img 0x7f020002
 int id description 0x7f080004
 int id grid_view 0x7f080000
 int id image 0x7f080002
